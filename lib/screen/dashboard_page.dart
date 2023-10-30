@@ -1,3 +1,4 @@
+import 'package:finance_management_dashboard/widgets/header.dart';
 import 'package:flutter/material.dart';
 
 class DashboardPage extends StatelessWidget {
@@ -7,7 +8,11 @@ class DashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const SafeArea(
         child: SingleChildScrollView(
-      child: Placeholder(),
+      child: Column(
+        children: [
+          Header(),
+        ],
+      ),
     ));
   }
 }
