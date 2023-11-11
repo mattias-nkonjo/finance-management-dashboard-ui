@@ -6,6 +6,7 @@ This repository contains Challenge One within the Flutter UI Challenges series. 
 
 - [Overview](#overview)
 - [Design](#design)
+- [Support me](#supportme)
 - [License](#license)
 
 ## Overview
@@ -17,6 +18,9 @@ The Challenge One project is dedicated to recreate the Finance Management Dashbo
 
 <img src="screenshots/cloud_finance_poster.png">
 
+## Support me
+
+- If you like the work please give me a star
 
 ## License
 
