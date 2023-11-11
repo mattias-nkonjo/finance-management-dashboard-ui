@@ -1,16 +1,16 @@
-import 'package:flutter/material.dart' show Color, Colors;
+import 'package:flutter/material.dart';
 
 class AppColors {
   AppColors._();
 
-  static const Color background = Color.fromRGBO(246, 246, 248, 1);
-  static const Color whiteCard = Color.fromRGBO(255, 255, 255, 1);
-  static const Color blue = Color.fromRGBO(55, 124, 246, 1);
-  static const Color blueColorGraph = Color.fromRGBO(149, 224, 251, 1);
-  static const Color green = Colors.green;
-  static const Color red = Colors.red;
-  static const Color black = Colors.black;
-  static const Color white = Colors.white;
-  static const Color grey = Colors.grey;
+  static const Color scaffoldBackgroundColor = Color(0xfff6f6f8);
+  static const Color blue = Color(0xff377cf6);
+  static const Color lightBlue = Color(0xff95e0fb);
+  static const Color black = Color(0xFF000000);
+  static const Color white = Color(0xFFffffff);
+  static const Color green = Color(0xFF65c382);
+  static const Color backgroundgreen = Color(0xFFe6f5eb);
+  static const Color grey = Color(0xffadaeb1);
+  static const Color red = Color(0xffee3939);
   static const Color transparent = Colors.transparent;
 }

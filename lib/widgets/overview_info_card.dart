@@ -1,15 +1,13 @@
-import 'package:finance_management_dashboard/constants/app_colors.dart';
-import 'package:finance_management_dashboard/data/overview_data.dart';
-import 'package:finance_management_dashboard/model/overview_model.dart';
-import 'package:flutter/material.dart';
+import 'package:finance_management_dashboard/constants/constants.dart';
+import 'package:finance_management_dashboard/model/overview_data.dart';
 
-class OverviewCard extends StatelessWidget {
-  const OverviewCard({
+class OverviewInfoCard extends StatelessWidget {
+  const OverviewInfoCard({
     Key? key,
-    required this.overviewData,
+    required this.overviewInfo,
   }) : super(key: key);
 
-  final OverviewData overviewData;
+  final OverviewData overviewInfo;
 
   @override
   Widget build(BuildContext context) {
@@ -28,12 +26,12 @@ class OverviewCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Icon(
-                overviewData.icon,
+                overviewInfo.icon,
                 color: AppColors.grey,
               ),
               const SizedBox(width: 10),
               Text(
-                overviewData.title,
+                overviewInfo.title,
                 style: const TextStyle(color: AppColors.grey, fontSize: 16),
               ),
             ],
@@ -41,7 +39,7 @@ class OverviewCard extends StatelessWidget {
           Row(
             children: [
               Text(
-                overviewData.amount,
+                overviewInfo.amount,
                 style:
                     const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
@@ -50,21 +48,21 @@ class OverviewCard extends StatelessWidget {
                 label: Row(
                   children: [
                     Icon(
-                      overviewData.arrow,
+                      overviewInfo.arrow,
                       size: 15,
-                      color: overviewData.textColor,
+                      color: overviewInfo.textColor,
                     ),
                     Text(
-                      overviewData.percentChange,
+                      overviewInfo.percentChange,
                       style: TextStyle(
-                        color: overviewData.textColor,
+                        color: overviewInfo.textColor,
                         fontWeight: FontWeight.bold,
                         fontSize: 12,
                       ),
                     ),
                   ],
                 ),
-                backgroundColor: overviewData.color,
+                backgroundColor: overviewInfo.color,
               ),
             ],
           ),
@@ -72,7 +70,7 @@ class OverviewCard extends StatelessWidget {
             text: TextSpan(
               children: [
                 TextSpan(
-                  text: overviewData.amountChange,
+                  text: overviewInfo.amountChange,
                   style: const TextStyle(
                     color: AppColors.green,
                     fontWeight: FontWeight.bold,
@@ -86,35 +84,6 @@ class OverviewCard extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class OverviewInfoCardGridView extends StatelessWidget {
-  const OverviewInfoCardGridView({
-    Key? key,
-    this.crossAxisCount = 4,
-    this.childAspectRatio = 1.5,
-  }) : super(key: key);
-
-  final int crossAxisCount;
-  final double childAspectRatio;
-
-  @override
-  Widget build(BuildContext context) {
-    return GridView.builder(
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemCount: overviewDataDetails.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: crossAxisCount,
-        crossAxisSpacing: 16,
-        mainAxisSpacing: 16,
-        childAspectRatio: childAspectRatio,
-      ),
-      itemBuilder: (context, index) => OverviewCard(
-        overviewData: overviewDataDetails[index],
       ),
     );
   }

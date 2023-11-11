@@ -1,9 +1,5 @@
-import 'package:finance_management_dashboard/constants/app_colors.dart';
-import 'package:finance_management_dashboard/constants/app_icons.dart';
-import 'package:finance_management_dashboard/constants/app_strings.dart';
-import 'package:finance_management_dashboard/data/transaction_data.dart';
-import 'package:finance_management_dashboard/model/transaction_model.dart';
-import 'package:flutter/material.dart';
+import 'package:finance_management_dashboard/constants/constants.dart';
+import 'package:finance_management_dashboard/model/transaction_data.dart';
 
 class LatestTransaction extends StatelessWidget {
   const LatestTransaction({super.key});
@@ -23,21 +19,19 @@ class LatestTransaction extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                AppConstStrings.latestTransaction,
+                AppStrings.latestTransaction,
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              TextButton(
-                  onPressed: null,
-                  child: Text(
-                    AppConstStrings.viewAll,
-                    style: TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )),
+              Text(
+                AppStrings.viewAll,
+                style: TextStyle(
+                  color: Colors.blue,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ],
           ),
           SizedBox(
@@ -47,37 +41,37 @@ class LatestTransaction extends StatelessWidget {
               columns: const [
                 DataColumn(
                   label: Text(
-                    AppConstStrings.toFrom,
+                    AppStrings.toFrom,
                     style: TextStyle(color: AppColors.grey),
                   ),
                 ),
                 DataColumn(
                   label: Text(
-                    AppConstStrings.date,
+                    AppStrings.date,
                     style: TextStyle(color: AppColors.grey),
                   ),
                 ),
                 DataColumn(
                   label: Text(
-                    AppConstStrings.description,
+                    AppStrings.description,
                     style: TextStyle(color: AppColors.grey),
                   ),
                 ),
                 DataColumn(
                   label: Text(
-                    AppConstStrings.amount,
+                    AppStrings.amount,
                     style: TextStyle(color: AppColors.grey),
                   ),
                 ),
                 DataColumn(
                   label: Text(
-                    AppConstStrings.status,
+                    AppStrings.status,
                     style: TextStyle(color: AppColors.grey),
                   ),
                 ),
                 DataColumn(
                   label: Text(
-                    AppConstStrings.action,
+                    AppStrings.action,
                     style: TextStyle(color: AppColors.grey),
                   ),
                 ),
@@ -101,7 +95,7 @@ DataRow recentFileDataRow(TransactionData transactionData) {
         Row(
           children: [
             const Icon(
-              AppIcons.profile,
+              AppMaterialIcons.profile,
               color: AppColors.grey,
             ),
             Padding(
@@ -153,23 +147,17 @@ DataRow recentFileDataRow(TransactionData transactionData) {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            IconButton(
-              onPressed: null,
-              icon: Icon(
-                AppIcons.link,
-              ),
+            Icon(
+              AppMaterialIcons.link,
+              color: AppColors.grey,
             ),
-            IconButton(
-              onPressed: null,
-              icon: Icon(
-                AppIcons.delete,
-              ),
+            Icon(
+              AppMaterialIcons.delete,
+              color: AppColors.grey,
             ),
-            IconButton(
-              onPressed: null,
-              icon: Icon(
-                AppIcons.threeDot,
-              ),
+            Icon(
+              AppMaterialIcons.threeDot,
+              color: AppColors.grey,
             ),
           ],
         ),

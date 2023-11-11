@@ -1,115 +1,144 @@
-import 'package:finance_management_dashboard/constants/app_colors.dart';
-import 'package:finance_management_dashboard/constants/app_icons.dart';
-import 'package:finance_management_dashboard/constants/app_strings.dart';
-import 'package:finance_management_dashboard/widgets/drawer_list_tile.dart';
-import 'package:flutter/material.dart';
+import 'package:finance_management_dashboard/constants/constants.dart';
 
 class SideMenu extends StatelessWidget {
-  const SideMenu({super.key});
+  const SideMenu({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: AppColors.whiteCard,
+      backgroundColor: AppColors.white,
+      elevation: 4,
       child: Padding(
-        padding: const EdgeInsets.only(
-          bottom: 10,
-          left: 16,
-          right: 16,
-          top: 24,
-        ),
+        padding: const EdgeInsets.all(16.0),
         child: ListView(
-          children: [
-            const Row(
+          children: const [
+            SizedBox(height: 15),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Icon(
-                  AppIcons.cloud,
+                  AppMaterialIcons.cloud,
                   size: 30,
                   color: AppColors.blue,
                 ),
-                SizedBox(
-                  width: 20,
-                ),
-                Text(
-                  AppConstStrings.cloudFinance,
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+                SizedBox(width: 20),
+                Flexible(
+                  child: Text(
+                    AppStrings.cloudFinance,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 30),
-            const Text(
-              AppConstStrings.menu,
+            SizedBox(height: 35),
+            Text(
+              AppStrings.menu,
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
                 letterSpacing: 1.5,
               ),
             ),
-            const SizedBox(
-              height: 15,
+            SizedBox(height: 15),
+            DrawerListTileItem(
+              title: AppStrings.overview,
+              materialIcon: AppMaterialIcons.overview,
+              tapColor: true,
             ),
-            DrawerListTile(
-              leadingIcon: AppIcons.overview,
-              title: AppConstStrings.overview,
-              isTapped: true,
+            DrawerListTileItem(
+              title: AppStrings.statistics,
+              materialIcon: AppMaterialIcons.statistics,
             ),
-            DrawerListTile(
-              leadingIcon: AppIcons.statistics,
-              title: AppConstStrings.statistics,
+            DrawerListTileItem(
+              title: AppStrings.savings,
+              materialIcon: AppMaterialIcons.savings,
             ),
-            DrawerListTile(
-              leadingIcon: AppIcons.portfolios,
-              title: AppConstStrings.portfolios,
-              trailingIcon: Icons.expand_more,
+            DrawerListTileItem(
+              title: AppStrings.portfolios,
+              materialIcon: AppMaterialIcons.portfolios,
             ),
-            DrawerListTile(
-              leadingIcon: AppIcons.message,
-              title: AppConstStrings.messages,
+            DrawerListTileItem(
+              title: AppStrings.messages,
+              materialIcon: AppMaterialIcons.message,
             ),
-            DrawerListTile(
-              leadingIcon: AppIcons.transactions,
-              title: AppConstStrings.transactions,
+            DrawerListTileItem(
+              title: AppStrings.transactions,
+              materialIcon: AppMaterialIcons.transactions,
             ),
-            const SizedBox(height: 35),
-            const Text(
-              AppConstStrings.general,
+            SizedBox(height: 15),
+            Text(
+              AppStrings.general,
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
                 letterSpacing: 1.5,
               ),
             ),
-            const SizedBox(height: 30),
-            DrawerListTile(
-              leadingIcon: AppIcons.settings,
-              title: AppConstStrings.settings,
+            SizedBox(height: 15),
+            DrawerListTileItem(
+              title: AppStrings.settings,
+              materialIcon: AppMaterialIcons.settings,
             ),
-            DrawerListTile(
-              leadingIcon: AppIcons.appearances,
-              title: AppConstStrings.appearances,
+            DrawerListTileItem(
+              title: AppStrings.appearances,
+              materialIcon: AppMaterialIcons.appearances,
             ),
-            DrawerListTile(
-              leadingIcon: AppIcons.needHelp,
-              title: AppConstStrings.needHelp,
+            DrawerListTileItem(
+              title: AppStrings.needHelp,
+              materialIcon: AppMaterialIcons.needHelp,
             ),
-            const SizedBox(height: 100),
-            const ListTile(
-              leading: Icon(
-                AppIcons.logout,
-                color: AppColors.black,
-              ),
-              title: Text(
-                AppConstStrings.logout,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+            SizedBox(height: 100),
+            DrawerListTileItem(
+              title: AppStrings.logout,
+              materialIcon: AppMaterialIcons.logout,
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class DrawerListTileItem extends StatelessWidget {
+  final String title;
+  final IconData materialIcon;
+  final bool tapColor;
+
+  const DrawerListTileItem({
+    super.key,
+    required this.title,
+    required this.materialIcon,
+    this.tapColor = false,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(15),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: tapColor ? AppColors.blue : AppColors.transparent,
+      ),
+      child: Row(
+        children: [
+          Icon(
+            materialIcon,
+            color: tapColor ? AppColors.white : AppColors.grey,
+          ),
+          const SizedBox(width: 10),
+          Text(
+            title,
+            style: TextStyle(
+              color: tapColor ? AppColors.white : AppColors.grey,
+            ),
+          ),
+        ],
       ),
     );
   }

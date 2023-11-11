@@ -1,17 +1,12 @@
-import 'package:flutter/material.dart' show immutable;
+class AppStrings {
+  AppStrings._();
 
-@immutable
-class AppConstStrings {
-  const AppConstStrings._();
-
-  static const String appTitle = 'Finance Management Dashboard';
-
-  //Side Menu Strings
+//DrawerItems Text
   static const String cloudFinance = "Cloud Finance";
   static const String menu = "MENU";
   static const String overview = "Overview";
   static const String statistics = "Statistics";
-  static const String savings = "Savings";
+  static const String savings = "savings";
   static const String portfolios = "Portfolios";
   static const String messages = "Messages";
   static const String transactions = "Transactions";
@@ -21,13 +16,11 @@ class AppConstStrings {
   static const String needHelp = "Need Help?";
   static const String logout = "Log Out";
 
-  //Side Menu Strings
-  static const String name = "Mattias Nkonjo";
-  static const String email = "mattiasthedev@gmail.com";
-
   // Header Text
   static const String dashboard = "Dashboard";
   static const String searchHere = "Search here";
+  static const String mattiasNkono = "Mattias Nkonjo";
+  static const String mattiasEmail = "mattiasthedev@gmail.com";
 
   //Overview Text
   static const String earnings = "Earnings";
